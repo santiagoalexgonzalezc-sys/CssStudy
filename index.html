@@ -2,13 +2,8 @@
 <html>
 <head>
 <title>coolsite.io</title>
-   <link rel="icon" href="cursorB1.jpg">
-</head>
+<link rel="icon" href="cursorB1.jpg">
 
-<body>
-<a href="game.html">
-<button id="centeredButton">play(i work i think)</button>
-</a>
 <style>
 body {
   margin: 0;
@@ -19,29 +14,39 @@ body {
   background-repeat: no-repeat;
 }
 
+/* BUTTON (actually a link now) */
 #centeredButton {
   position: absolute;
-  left: 590px;
-  top: 300px;
-  width: 200px;
-  height: 100px;
-  font-size: 24px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  display: inline-block;
   width: 200px;
   height: 60px;
- background: linear-gradient(to bottom, yellow, orange, red);
-  color: white;
+  line-height: 60px;
+  text-align: center;
+
   font-size: 24px;
-  border: none;
+  text-decoration: none;
+  color: white;
+
+  background: linear-gradient(to bottom, yellow, orange, red);
   border-radius: 15px;
   box-shadow: 5px 5px 10px gray;
+
   transition: 0.3s;
 }
 
-
- #centeredButton:hover {
-  transform: scale(1.2);
+#centeredButton:hover {
+  transform: translate(-50%, -50%) scale(1.2);
 }
 </style>
+</head>
+
+<body>
+
+<a href="game.html" id="centeredButton">play (i work i think)</a>
 
 </body>
 </html>
