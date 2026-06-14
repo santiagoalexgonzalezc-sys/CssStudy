@@ -48,6 +48,18 @@ body {
 
 <a href="game.html" id="centeredButton">play (it works i think)</a>
 
+<audio id="music" src="songcool.mp3" loop></audio>
+
+<button id="playMusic">Play Music</button>
+
+<script>
+const music = document.getElementById("music");
+
+document.getElementById("playMusic").addEventListener("click", function() {
+  music.play();
+});
+</script>
+  
 </body>
 </html>
 
