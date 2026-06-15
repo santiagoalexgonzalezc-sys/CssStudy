@@ -1,3 +1,8 @@
-document.getElementById("catchmebutton").addEventListener("click", function() {
-  music.play();
-});
+const catchMeButton = document.getElementById("catchMeButton")
+
+
+
+function move() {
+  left px:300
+  top px:300
+}
