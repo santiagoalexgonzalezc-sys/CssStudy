@@ -3,6 +3,6 @@ const catchMeButton = document.getElementById("catchMeButton")
 
 
 function move() {
-  left px:300
-  top px:300
+  left: px300
+  top: px300
 }
