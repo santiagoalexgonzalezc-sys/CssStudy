@@ -2,7 +2,7 @@ const catchMeButton = document.getElementById("catchMeButton");
 
 let score = 0;
 
-//proper high score loading
+
 let highScore = localStorage.getItem("highScore");
 highScore = highScore ? Number(highScore) : 0;
 
@@ -11,7 +11,7 @@ document.getElementById("highScoreText").textContent =
 
 let canScore = true;
 
-/* ---------------- AI MOVEMENT ---------------- */
+
 document.addEventListener("mousemove", (e) => {
   const rect = catchMeButton.getBoundingClientRect();
 
@@ -27,7 +27,7 @@ document.addEventListener("mousemove", (e) => {
     let newLeft = catchMeButton.offsetLeft + dx * 2;
     let newTop = catchMeButton.offsetTop + dy * 2;
 
-    // ✅ BORDER LIMIT (THIS IS WHERE IT GOES)
+   
     newLeft = Math.max(0, Math.min(1000 - catchMeButton.offsetWidth, newLeft));
     newTop = Math.max(0, Math.min(600 - catchMeButton.offsetHeight, newTop));
 
@@ -36,7 +36,7 @@ document.addEventListener("mousemove", (e) => {
   }
 });
 
-/* ---------------- SCORE SYSTEM ---------------- */
+
 catchMeButton.addEventListener("click", () => {
   if (!canScore) return;
 
