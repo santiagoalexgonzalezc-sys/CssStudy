@@ -57,3 +57,23 @@ catchMeButton.addEventListener("click", () => {
     canScore = true;
   }, 200);
 });
+
+let x = 250;
+let y = 300;
+
+let speedX = 4;
+let speedY = 3;
+
+function animate() {
+  x += speedX;
+  y += speedY;
+
+  // Left or right wall
+  if (x <= 0 || x >= arena.clientWidth - catchMeButton.offsetWidth) {
+    speedX *= -1;
+  }
+
+  // Top or bottom wall
+  if (y <= 0 || y >= arena.clientHeight - catchMeButton.offsetHeight) {
+    speedY *= -1;
+  }
