@@ -82,3 +82,30 @@ catchMeButton.addEventListener("click", () => {
       "High Score: " + highScore;
   }
 });
+
+function resetIfStuck() {
+  const rect = catchMeButton.getBoundingClientRect();
+
+  const stuckLeft = rect.left < 20 || rect.right > window.innerWidth - 20;
+  const stuckTop = rect.top < 20 || rect.bottom > window.innerHeight - 20;
+
+  if (stuckLeft || stuckTop) {
+    catchMeButton.style.left = "400px";
+    catchMeButton.style.top = "250px";
+  }
+}
+
+let canScore = true;
+
+catchMeButton.addEventListener("click", () => {
+  if (!canScore) return;
+
+  canScore = false;
+  score++;
+
+  document.getElementById("score").textContent = "Score: " + score;
+
+  setTimeout(() => {
+    canScore = true;
+  }, 200); 
+});
