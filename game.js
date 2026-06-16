@@ -1,11 +1,17 @@
 const catchMeButton = document.getElementById("catchMeButton");
 
 let score = 0;
-let highScore = localStorage.getItem("highScore") || 0;
+
+//proper high score loading
+let highScore = localStorage.getItem("highScore");
+highScore = highScore ? Number(highScore) : 0;
 
 document.getElementById("highScoreText").textContent =
   "High Score: " + highScore;
 
+let canScore = true;
+
+/* ---------------- AI MOVEMENT ---------------- */
 document.addEventListener("mousemove", (e) => {
   const rect = catchMeButton.getBoundingClientRect();
 
@@ -21,91 +27,33 @@ document.addEventListener("mousemove", (e) => {
     let newLeft = catchMeButton.offsetLeft + dx * 2;
     let newTop = catchMeButton.offsetTop + dy * 2;
 
-    newLeft = Math.max(
-      0,
-      Math.min(1000 - catchMeButton.offsetWidth, newLeft)
-    );
-
-    newTop = Math.max(
-      0,
-      Math.min(600 - catchMeButton.offsetHeight, newTop)
-    );
+    // ✅ BORDER LIMIT (THIS IS WHERE IT GOES)
+    newLeft = Math.max(0, Math.min(1000 - catchMeButton.offsetWidth, newLeft));
+    newTop = Math.max(0, Math.min(600 - catchMeButton.offsetHeight, newTop));
 
     catchMeButton.style.left = newLeft + "px";
     catchMeButton.style.top = newTop + "px";
   }
 });
 
-catchMeButton.addEventListener("click", () => {
-  score++;
-  document.getElementById("score").textContent = "Score: " + score;
-
-  if (score > highScore) {
-    highScore = score;
-    localStorage.setItem("highScore", highScore);
-    document.getElementById("highScoreText").textContent =
-      "High Score: " + highScore;
-  }
-});
-
-
-newLeft = Math.max(
-  0,
-  Math.min(1000 - catchMeButton.offsetWidth, newLeft)
-);
-
-newTop = Math.max(
-  0,
-  Math.min(600 - catchMeButton.offsetHeight, newTop)
-);
-
-let highScore = localStorage.getItem("highScore");
-
-if (highScore === null) {
-  highScore = 0;
-} else {
-  highScore = Number(highScore);
-}
-
-document.getElementById("highScoreText").textContent =
-  "High Score: " + highScore;
-
-catchMeButton.addEventListener("click", () => {
-  score++;
-
-  document.getElementById("score").textContent = "Score: " + score;
-
-  if (score > highScore) {
-    highScore = score;
-    localStorage.setItem("highScore", highScore);
-    document.getElementById("highScoreText").textContent =
-      "High Score: " + highScore;
-  }
-});
-
-function resetIfStuck() {
-  const rect = catchMeButton.getBoundingClientRect();
-
-  const stuckLeft = rect.left < 20 || rect.right > window.innerWidth - 20;
-  const stuckTop = rect.top < 20 || rect.bottom > window.innerHeight - 20;
-
-  if (stuckLeft || stuckTop) {
-    catchMeButton.style.left = "400px";
-    catchMeButton.style.top = "250px";
-  }
-}
-
-let canScore = true;
-
+/* ---------------- SCORE SYSTEM ---------------- */
 catchMeButton.addEventListener("click", () => {
   if (!canScore) return;
 
   canScore = false;
-  score++;
 
+  score++;
   document.getElementById("score").textContent = "Score: " + score;
+
+  if (score > highScore) {
+    highScore = score;
+    localStorage.setItem("highScore", highScore);
+
+    document.getElementById("highScoreText").textContent =
+      "High Score: " + highScore;
+  }
 
   setTimeout(() => {
     canScore = true;
-  }, 200); 
+  }, 200);
 });
