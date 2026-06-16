@@ -33,4 +33,8 @@ body {
 
   transition: 0.3s;
 }
-    
+
+#score, {
+#highScoreText 
+  color: white;
+}
