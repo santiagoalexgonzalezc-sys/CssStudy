@@ -1,5 +1,11 @@
 const catchMeButton = document.getElementById("catchMeButton");
 
+let score = 0;
+let highScore = localStorage.getItem("highScore") || 0;
+
+document.getElementById("highScoreText").textContent =
+  "High Score: " + highScore;
+
 document.addEventListener("mousemove", (e) => {
   const rect = catchMeButton.getBoundingClientRect();
 
@@ -17,12 +23,12 @@ document.addEventListener("mousemove", (e) => {
 
     newLeft = Math.max(
       0,
-      Math.min(window.innerWidth - catchMeButton.offsetWidth, newLeft)
+      Math.min(1000 - catchMeButton.offsetWidth, newLeft)
     );
 
     newTop = Math.max(
       0,
-      Math.min(window.innerHeight - catchMeButton.offsetHeight, newTop)
+      Math.min(600 - catchMeButton.offsetHeight, newTop)
     );
 
     catchMeButton.style.left = newLeft + "px";
@@ -30,20 +36,15 @@ document.addEventListener("mousemove", (e) => {
   }
 });
 
-let score = 0;
-
 catchMeButton.addEventListener("click", () => {
   score++;
   document.getElementById("score").textContent = "Score: " + score;
-});
-let highScore = localStorage.getItem("highScore") || 0;
 
-function updateHighScore() {
   if (score > highScore) {
     highScore = score;
     localStorage.setItem("highScore", highScore);
+    document.getElementById("highScoreText").textContent =
+      "High Score: " + highScore;
   }
-}
+});
 
-document.getElementById("highScoreText").textContent =
-  "High Score: " + (localStorage.getItem("highScore") || 0);
