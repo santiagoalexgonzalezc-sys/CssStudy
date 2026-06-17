@@ -1,68 +1,112 @@
-<DOCTYPE html>
-  <html>
+<!DOCTYPE html>
+<html>
+
 <head>
-  <title>thanks</title>
+  <title>Thanks</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-image: url("cool67.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Titles */
+    #thanks {
+      position: absolute;
+      left: 150px;
+      top: 250px;
+    }
+
+    #update {
+      position: absolute;
+      left: 750px;
+      top: 250px;
+    }
+
+    /* Text */
+    #thanksword {
+      position: absolute;
+      left: 150px;
+      top: 330px;
+      width: 350px;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    #updateword {
+      position: absolute;
+      left: 750px;
+      top: 330px;
+      width: 350px;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    /* Back button */
+    #back {
+      position: absolute;
+      left: 50%;
+      bottom: 50px;
+      transform: translateX(-50%);
+
+      width: 200px;
+      height: 60px;
+      line-height: 60px;
+
+      text-align: center;
+      text-decoration: none;
+      color: white;
+
+      background: linear-gradient(to bottom, blue, purple);
+      border-radius: 15px;
+      box-shadow: 5px 5px 10px gray;
+
+      transition: 0.3s;
+    }
+
+    #back:hover {
+      transform: translateX(-50%) scale(1.1);
+    }
+  </style>
 </head>
 
 <body>
-<style>
-body {
-  margin: 0;
-  min-height: 100vh;
-  background-image: url("cool67.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-  #thanks {
-  position: absolute;
-  left: 200px;
-  top: 300px;
-  }
-   #update {
-  position: absolute;
-  left: 800px;
-  top: 300px;
-   }
-   #thanks {
-  position: absolute;
-  left: 200px;
-  top: 400px;
-   }
-   #updateword {
-  position: absolute;
-  left: 800px;
-  top: 400px;
-   }  
-  #thanks,
-#updateword {
-  #update
-  #updateword
-  color: white;
-}
-</style>
 
+  <h1 id="thanks">Thanks Guys</h1>
 
-<h1 id="thanks">thanks guys</h1>
-<h1 id="update">update 0</h1>
-<p id="thanksword">thank you emir snati chatgpt and my small brain cells 
-emir you gave me the idea to break my number 1 bug
-santi you tought me work flow java css html
-chatgpt you tought me how code works and most of everything i know
-my braincells thank you for understanding everything</p>
+  <h1 id="update">Update 0</h1>
 
-  
-  <p id="updateword">i added PvAI you can fight an ai your task is to catch a button next update ill b adding 
-    a 30 sec timer and when you click the button you get point first to 3 yes the ai can get 
-    points ill try to add a system to give notifications when it updates</p>
+  <p id="thanksword">
+    Thank you Emir, Santi, ChatGPT, and my small brain cells.<br><br>
+
+    Emir, you gave me the idea to break my number 1 bug.<br><br>
+
+    Santi, you taught me workflow, JavaScript, CSS, and HTML.<br><br>
+
+    ChatGPT, you taught me how code works and most of everything I know.<br><br>
+
+    My brain cells, thank you for understanding everything.
+  </p>
+
+  <p id="updateword">
+    I added PvAI. You can fight an AI and your task is to catch a button.<br><br>
+
+    Next update I'll be adding a 30 second timer and a scoring system.<br><br>
+
+    I'll also try to add a notification system so players know when the game updates.
+  </p>
+
+  <a href="index.html" id="back">Back</a>
+
 </body>
 
-
-
-
-
-
-
+</html>
 
 
     
